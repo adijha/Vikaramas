@@ -9,12 +9,20 @@
  * @param {character[]} s
  * @return {void} Do not return anything, modify s in-place instead.
  */
-var reverseString = function (s) {
-	if (s.length === 0) return s
+// r0 h [] // [h]
+// r1 e [h] // [e,h]
+// r2 l [e,h] // [l,e,h]
+// r3 l [l,e,h] // [l,l,e,h]
+// r4 o [l,l,e,h] // [o,l,l,e,h]
+// r5 
 
-	let last = s.pop()
+var reverseString = function (s) { // r4 // r3 // r2 // r1 /r0
+	if (s.length === 0) return s //false false false false true
+
+	let last = s.pop() // last o l l e h  //s [h,e,l,l] [h,e,l] [h,e] [h]
 	// console.log(s, 'climb')
-	reverseString(s)
+	reverseString(s) // [h,e,l,l] [h,e,l] [h,e] [h] [] 
+	
 	s.unshift(last)
 	// console.log(s, 'down')
 	// return s
