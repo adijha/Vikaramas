@@ -2,17 +2,17 @@
  Do not return anything, modify nums1 in-place instead.
  */
 function merge(nums1: number[], m: number, nums2: number[], n: number): void {
-  var insertPositionOfNums1 = m + n - 1;
-  m -= 1;
-  n -= 1;
-  while (n >= 0) {
-    if (nums1[m] > nums2[n]) {
-      nums1[insertPositionOfNums1] = nums1[m];
-      m -= 1;
+  var insertPosition = m + n - 1;
+  var first=m-1;
+  var second=n-1;
+  while (second >= 0) {
+    if (nums1[first] > nums2[second]) {
+      nums1[insertPosition] = nums1[first];
+      first--;
     } else {
-      nums1[insertPositionOfNums1] = nums2[n];
-      n -= 1;
+      nums1[insertPosition] = nums2[second];
+      second--;
     }
-    insertPositionOfNums1 -= 1;
+    insertPosition--;
   }
 }
